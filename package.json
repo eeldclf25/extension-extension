@@ -14,10 +14,43 @@
   "contributes": {
     "commands": [
       {
-        "command": "extension-extension.helloWorld",
-        "title": "Hello World"
+        "command": "extext.openDailyCalendar",
+        "title": "Open Daily Calendar"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "extext-extensionNavigation",
+          "title": "Extension Navigation",
+          "icon": "icons/calendar.svg"
+        }
+      ]
+    },
+    "views": {
+      "extext-extensionNavigation": [
+        {
+          "id": "extext.extensionNavigation",
+          "name": "Extension Navigation"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "extext.extensionNavigation",
+        "contents": "[(markwhen)데일리 캘린더 열기](command:extext.openDailyCalendar)\n[(Foam)데일리 노트 만들기](command:foam-vscode.open-daily-note-for-date)\n"
+      }
+    ],
+    "configuration": {
+      "title": "Extension Extension",
+      "properties": {
+        "extext.dailyNotesDirectory": {
+          "type": "string",
+          "default": "",
+          "description": "The path to the folder containing daily notes."
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
