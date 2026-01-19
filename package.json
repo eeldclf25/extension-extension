@@ -3,6 +3,7 @@
   "displayName": "Extension Extension",
   "description": "The extension that makes extensions better.",
   "version": "0.0.1",
+  "icon": "icons/two-gears.png",
   "engines": {
     "vscode": "^1.108.1"
   },
@@ -31,7 +32,8 @@
       "extext-extensionNavigation": [
         {
           "id": "extext.extensionNavigation",
-          "name": "Extension Navigation"
+          "name": "Extension Navigation",
+          "icon": "icons/two-gears.svg"
         }
       ]
     },
