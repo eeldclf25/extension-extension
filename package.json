@@ -2,7 +2,7 @@
   "name": "extension-extension",
   "displayName": "Extension Extension",
   "description": "The extension that makes extensions better.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "icon": "icons/two-gears.png",
   "engines": {
     "vscode": "^1.108.1"
@@ -17,6 +17,10 @@
       {
         "command": "extext.openDailyCalendar",
         "title": "Open Daily Calendar"
+      },
+      {
+        "command": "extext.createDailyNote",
+        "title": "Create Daily Note"
       }
     ],
     "viewsContainers": {
@@ -40,7 +44,7 @@
     "viewsWelcome": [
       {
         "view": "extext.extensionNavigation",
-        "contents": "[(markwhen)데일리 캘린더 열기](command:extext.openDailyCalendar)\n[(Foam)데일리 노트 만들기](command:foam-vscode.open-daily-note-for-date)\n"
+        "contents": "[(markwhen)데일리 캘린더 열기](command:extext.openDailyCalendar)\n[(Foam)데일리 노트 만들기](command:extext.createDailyNote)\n"
       }
     ],
     "configuration": {
