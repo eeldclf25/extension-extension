@@ -14,14 +14,4 @@ This extension provides navigation utilities for extensions.
 
 This extension contributes the following settings:
 
-* `extext.dailyNotesDirectory`: The path to the folder containing daily notes.
-
-## Release Notes
-
-### 0.0.2
-
-- Added `Create Daily Note` command.
-
-### 0.0.1
-
-Initial release.
+- `extext.dailyNotesDirectory`: The path to the folder containing daily notes.

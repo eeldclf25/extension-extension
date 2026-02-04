@@ -6,20 +6,13 @@ export class DailyCalendarProvider implements vscode.TextDocumentContentProvider
         return this.changeEvent.event;
     }
 
-    private virtualFileContent = "";
-    provideTextDocumentContent(uri: vscode.Uri): string {
-        return this.virtualFileContent;
-    }
-
-    public async openDailyCalendar() {
+    async provideTextDocumentContent(uri: vscode.Uri): Promise<string> {
         if (!vscode.extensions.getExtension("Markwhen.markwhen")) {
-            vscode.window.showErrorMessage('This feature requires the Markwhen extension.');
-            return;
+            return "Markwhen extension is required to view this calendar.";
         }
 
         if (!vscode.workspace.workspaceFolders) {
-            vscode.window.showWarningMessage('No workspace folder open.');
-            return;
+            return "No workspace folder open.";
         }
 
         try {
@@ -34,13 +27,26 @@ export class DailyCalendarProvider implements vscode.TextDocumentContentProvider
                 })
             )).join('\n');
 
-            const uri = vscode.Uri.parse('markwhen:Daily Calendar.mw');
-            this.virtualFileContent = combinedContent;
-            this.changeEvent.fire(uri);
-
-            await vscode.commands.executeCommand('vscode.openWith', uri, 'markwhen.timeline', vscode.ViewColumn.Two);
+            return combinedContent;
         } catch (error) {
-            vscode.window.showWarningMessage(`Error reading calendar files: ${error}`);
+            return `Error reading calendar files: ${error}`;
         }
+    }
+
+    public async openDailyCalendar() {
+        if (!vscode.extensions.getExtension("Markwhen.markwhen")) {
+            vscode.window.showErrorMessage('This feature requires the Markwhen extension.');
+            return;
+        }
+
+        if (!vscode.workspace.workspaceFolders) {
+            vscode.window.showWarningMessage('No workspace folder open.');
+            return;
+        }
+
+        const uri = vscode.Uri.parse('markwhen:Daily Calendar.mw');
+        this.changeEvent.fire(uri);
+
+        await vscode.commands.executeCommand('vscode.openWith', uri, 'markwhen.timeline', vscode.ViewColumn.Two);
     }
 }
