@@ -4,6 +4,10 @@ All notable changes to the "extension-extension" extension will be documented in
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.0.4]
+
+- Automatically trigger calendar view when opening the daily calendar.
+
 ## [0.0.3]
 
 - Improved Daily Calendar functionality: now loads content dynamically.

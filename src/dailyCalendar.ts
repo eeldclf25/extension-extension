@@ -48,5 +48,6 @@ export class DailyCalendarProvider implements vscode.TextDocumentContentProvider
         this.changeEvent.fire(uri);
 
         await vscode.commands.executeCommand('vscode.openWith', uri, 'markwhen.timeline', vscode.ViewColumn.Two);
+        await vscode.commands.executeCommand('markwhen.calendarView');
     }
 }
